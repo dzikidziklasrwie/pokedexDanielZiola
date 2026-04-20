@@ -1,0 +1,184 @@
+.back {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  color: var(--red);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.back:hover {
+  text-decoration: underline;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hero {
+  background: var(--type-color);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 2.5rem;
+}
+
+.hero img {
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+  flex-shrink: 0;
+}
+
+.heroInfo {
+  color: white;
+}
+
+.idBadge {
+  font-size: 0.85rem;
+  font-weight: 700;
+  opacity: 0.8;
+  margin-bottom: 0.25rem;
+}
+
+.pokeName {
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-transform: capitalize;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+}
+
+.types {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.typeBadge {
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: white;
+  border: 2px solid rgba(255,255,255,0.5);
+}
+
+.details {
+  padding: 1.75rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.section h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.profileGrid {
+  display: flex;
+  gap: 2rem;
+}
+
+.profileItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.abilities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.ability {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.875rem;
+  text-transform: capitalize;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.statRow {
+  display: grid;
+  grid-template-columns: 64px 40px 1fr;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.statLabel {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.statValue {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: right;
+}
+
+.barBg {
+  background: var(--border);
+  border-radius: 999px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 4rem;
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+.error {
+  color: var(--red);
+}
+
+@media (max-width: 500px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .types {
+    justify-content: center;
+  }
+
+  .details {
+    padding: 1.25rem;
+  }
+}

@@ -5,12 +5,141 @@
   color: var(--red);
 }
 
+/* ── Filter bar ── */
+.filterBar {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.1rem 1.25rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.searchWrap {
+  display: flex;
+  align-items: center;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 0 0.75rem;
+  transition: border-color 0.15s;
+}
+
+.searchWrap:focus-within {
+  border-color: var(--red);
+}
+
+.searchIcon {
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
+  user-select: none;
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 0.6rem 0;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--text);
+  outline: none;
+}
+
+.searchInput::placeholder {
+  color: var(--muted);
+}
+
+.clearBtn {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding: 0.2rem 0.3rem;
+  cursor: pointer;
+  line-height: 1;
+  border-radius: 4px;
+}
+
+.clearBtn:hover {
+  color: var(--text);
+  background: var(--border);
+}
+
+.sliders {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.sliderLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  flex: 1;
+  min-width: 120px;
+}
+
+.sliderLabel strong {
+  color: var(--red);
+  font-weight: 700;
+}
+
+.slider {
+  width: 100%;
+  accent-color: var(--red);
+  cursor: pointer;
+  height: 4px;
+}
+
+.resetBtn {
+  align-self: flex-start;
+  background: none;
+  border: 1.5px solid var(--border);
+  border-radius: 7px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.resetBtn:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+/* ── Results info ── */
+.resultInfo {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.resultInfo strong {
+  color: var(--text);
+}
+
+/* ── Grid ── */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
   gap: 1rem;
 }
 
+/* ── No results ── */
+.noResults {
+  text-align: center;
+  padding: 3rem;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+/* ── Pagination ── */
 .pagination {
   display: flex;
   align-items: center;
@@ -46,6 +175,7 @@
   text-align: center;
 }
 
+/* ── States ── */
 .loading {
   text-align: center;
   padding: 3rem;

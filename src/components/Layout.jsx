@@ -10,8 +10,8 @@ export default function Layout() {
           Pokedex VIA Assignment 2
         </NavLink>
         <nav className={styles.nav}>
-          <NavLink to="/" end className={({ isActive }) => isActive ? styles.active : ''}>
-            Pokedex by Daniel Ziola
+          <NavLink to="/" end className={styles.active}>
+            Pokedex
           </NavLink>
         </nav>
       </header>

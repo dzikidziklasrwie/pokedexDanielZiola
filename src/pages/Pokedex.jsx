@@ -95,7 +95,7 @@ export default function Pokedex() {
 
   return (
     <div>
-      <h1 className={styles.title}>Pokédex</h1>
+      <h1 className={styles.title}>Pokedex by Daniel Ziola</h1>
 
       <div className={styles.filterBar}>
         {/* Search */}

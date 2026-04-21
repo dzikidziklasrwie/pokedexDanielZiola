@@ -2,7 +2,6 @@ import { createHashRouter, RouterProvider } from 'react-router-dom'
 import Layout from './components/Layout'
 import Pokedex from './pages/Pokedex'
 import PokemonDetail from './pages/PokemonDetail'
-import About from './pages/About'
 
 const router = createHashRouter([
   {
@@ -11,7 +10,6 @@ const router = createHashRouter([
     children: [
       { index: true, element: <Pokedex /> },
       { path: 'pokemon/:name', element: <PokemonDetail /> },
-      { path: 'about', element: <About /> },
     ],
   },
 ])

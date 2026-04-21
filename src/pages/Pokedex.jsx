@@ -74,6 +74,13 @@ export default function Pokedex() {
     setPage(0)
   }
 
+  function goToPage(val) {
+    const num = Number(val)
+    if (!val || isNaN(num)) return
+    const clamped = Math.max(0, Math.min(num - 1, totalPages - 1))
+    setPage(clamped)
+  }
+
   function clearFilters() {
     setSearch('')
     setMinHP(0)
@@ -155,7 +162,17 @@ export default function Pokedex() {
           ← Previous
         </button>
         <span className={styles.pageInfo}>
-          Page {page + 1} of {totalPages || 1}
+          Page
+          <input
+            className={styles.pageInput}
+            type="number"
+            min={1}
+            max={totalPages || 1}
+            value={page + 1}
+            onChange={e => goToPage(e.target.value)}
+            disabled={loadingDetails}
+          />
+          of {totalPages || 1}
         </span>
         <button className={styles.btn} onClick={() => setPage(p => p + 1)}
           disabled={page >= totalPages - 1 || loadingDetails}>

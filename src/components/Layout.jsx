@@ -13,9 +13,6 @@ export default function Layout() {
           <NavLink to="/" end className={({ isActive }) => isActive ? styles.active : ''}>
             Pokédex
           </NavLink>
-          <NavLink to="/about" className={({ isActive }) => isActive ? styles.active : ''}>
-            About
-          </NavLink>
         </nav>
       </header>
       <main className={styles.main}>

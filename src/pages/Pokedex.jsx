@@ -40,19 +40,27 @@ export default function Pokedex() {
   const totalPages = Math.ceil(filteredNames.length / LIMIT)
   const pageSlice = filteredNames.slice(page * LIMIT, (page + 1) * LIMIT)
 
+  // Stable key so the effect re-runs whenever the actual slice content changes
+  // (including when allNames first loads — page/search alone won't catch that)
+  const sliceKey = pageSlice.map(p => p.name).join(',')
+
   // Fetch full details for current page slice (needed for stat filtering)
   useEffect(() => {
-    if (pageSlice.length === 0) { setDetails([]); return }
+    if (!sliceKey) { setDetails([]); return }
     setLoadingDetails(true)
     const cancelled = { value: false }
-    Promise.all(pageSlice.map(p => fetch(p.url).then(r => r.json())))
+    Promise.all(
+      sliceKey.split(',').map(name =>
+        fetch(`https://pokeapi.co/api/v2/pokemon/${name}`).then(r => r.json())
+      )
+    )
       .then(data => { if (!cancelled.value) setDetails(data) })
       .catch(e => { if (!cancelled.value) setError(e.message) })
       .finally(() => { if (!cancelled.value) setLoadingDetails(false) })
     return () => { cancelled.value = true }
-  }, [page, search]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [sliceKey])
 
-  // Apply stat filters on top of fetched details
+  // Apply stat filters — when all sliders are 0 every pokemon passes (>= 0 is always true)
   const displayed = details.filter(p =>
     getStat(p, 'hp') >= minHP &&
     getStat(p, 'attack') >= minATK &&
